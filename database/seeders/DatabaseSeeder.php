@@ -35,10 +35,7 @@ final class DatabaseSeeder extends Seeder
         $users = User::all();
         $subreddits = Subreddit::all();
         foreach ($users as $user) {
-            $randomSubreddits = $subreddits->random(random_int(1, 3));
-
-            $user->subreddits()->attach($randomSubreddits);
+            $user->subreddits()->syncWithoutDetaching($subreddits->pluck('id'));
         }
-
     }
 }
