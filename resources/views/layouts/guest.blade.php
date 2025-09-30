@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,7 +24,7 @@ declare(strict_types=1);
         <div class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-start sm:pt-0">
             <div>
                 <a href="/">
-                    <img src="assets/logo-black.svg " class="h-30 w-50" alt="logo 3 pontos" />
+                    <img src="/assets/logo-black.svg" class="h-30 w-50" alt="logo 3 pontos" />
                 </a>
             </div>
 
@@ -33,4 +34,5 @@ declare(strict_types=1);
         </div>
     </body>
 </html>
-<?php 
+
+<?php

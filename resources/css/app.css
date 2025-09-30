@@ -20,8 +20,15 @@
     /* indigo */
     --color-indigo-primary: var(--indigo-primary);
 
+    /* color-brand */
+    --color-brand-primary: var(--brand-primary);
+
+    /* color-lime */
+    --color-lime-primary: var(--lime-primary);
+
     /* elevation */
     --color-elevation-01dp: var(--elevation-01dp);
+    --color-elevation-surface: var(--elevation-surface);
 
     /* text colors */
     --color-medium: var(--text-medium);
@@ -29,6 +36,9 @@
 
     /* fonts */
     --font-secondary: 'Cal Sans', sans-serif;
+
+    /* outline colors */
+    --color-light: var(--outline-light);
 }
 
 .font-secondary {
@@ -48,6 +58,9 @@
     font-size: var(--font-size-xs);
 }
 
+.text-md {
+    font-size: var(--font-size-md);
+}
 /* font weight */
 .font-regular {
     font-weight: var(--font-weight-regular);
@@ -69,6 +82,10 @@
     line-height: var(--font-height-xs);
 }
 
+button {
+    cursor: pointer;
+}
+
 @layer base {
     :root {
         /* red */
@@ -77,12 +94,19 @@
         /* indigo */
         --indigo-primary: #4f39f6;
 
+        /* brand */
+        --brand-primary: #3895ff;
+
+        /* lime */
+        --lime-primary: #a5e412;
+
         /* elevation */
         --elevation-01dp: #f7f8fc;
+        --elevation-surface: #fbfbff;
 
         /* text colors */
         --text-medium: #4f4f4f;
-        --text-high: #0a0a09;
+        --text-high: #09090a;
 
         /* text-sizes */
         --font-size-xxxs: 12px;
@@ -106,6 +130,9 @@
         /* leading */
         --font-height-default: 100%;
         --font-height-xs: 150%;
+
+        /* outline colors */
+        --outline-light: #e8e9f1;
     }
 
     .dark {
@@ -114,6 +141,10 @@
         --text-high: #fdfdfd;
 
         /* elevation */
-        --elevation-01dp: #1a1a1b;
+        --elevation-01dp: #0f0f10;
+        --elevation-surface: #09090a;
+
+        /* outline colors */
+        --outline-light: #2c2c2d;
     }
 }
