@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Models\Post;
+use App\Models\Subreddit;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -25,6 +27,10 @@ final class DatabaseSeeder extends Seeder
             'at_sign' => 'dead',
             'password' => Hash::make('password'),
         ]);
+
         User::factory(10)->create();
+        Subreddit::factory(10)->create();
+
+        Post::factory(10)->create();
     }
 }

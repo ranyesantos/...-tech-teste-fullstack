@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subreddits', function (Blueprint $table): void {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('display_name');
             $table->longText('description');

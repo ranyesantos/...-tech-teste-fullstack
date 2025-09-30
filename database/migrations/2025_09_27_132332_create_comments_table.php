@@ -14,7 +14,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table): void {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->foreignId('post_id')->constrained();
             $table->foreignId('author_id')->constrained();
             $table->foreignId('parent_comment_id')->constrained('comments')->nullable();

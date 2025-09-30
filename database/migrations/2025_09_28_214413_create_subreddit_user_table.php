@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table): void {
-            $table->uuid('id')->primary();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('subreddit_id')->constrained('subreddits');
-            $table->string('title');
-            $table->longText('content');
-            $table->softDeletes();
+        Schema::create('subreddit_user', function (Blueprint $table): void {
+            $table->id();
+            $table->foreignId('subreddit_id')->constrained('subreddits')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('subreddit_user');
     }
 };
