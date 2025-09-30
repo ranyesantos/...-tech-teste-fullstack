@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 final class RepliesCountNumber extends Component
@@ -18,7 +17,7 @@ final class RepliesCountNumber extends Component
         $this->count = 30;
     }
 
-    public function render(): Factory|View
+    public function render(): View
     {
         return view('livewire.replies-count-number');
     }

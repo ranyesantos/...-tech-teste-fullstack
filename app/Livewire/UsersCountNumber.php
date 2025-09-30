@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Livewire\Component;
 
 final class UsersCountNumber extends Component
@@ -16,10 +16,15 @@ final class UsersCountNumber extends Component
     public function mount(): void
     {
         // @TODO: trocar para a contagem real de numero de usuarios
-        $this->count = User::query()->count();
+        /** @var User $user */
+        $user = Auth::user();
+        $this->count = $user
+            ->subreddits()
+            ->withCount('users')
+            ->count();
     }
 
-    public function render(): Factory|View
+    public function render(): View
     {
         return view('livewire.users-count-number');
     }

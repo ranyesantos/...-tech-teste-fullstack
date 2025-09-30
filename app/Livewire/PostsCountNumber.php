@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Illuminate\Contracts\View\View;
-use Illuminate\Contracts\View\Factory;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Livewire\Component;
 
 final class PostsCountNumber extends Component
@@ -16,11 +17,15 @@ final class PostsCountNumber extends Component
 
     public function mount(): void
     {
-        // @TODO: trocar para a contagem real de numero de posts
-        $this->count = 80;
+        /** @var User $user */
+        $user = Auth::user();
+        $this->count = $user
+            ->subreddits()
+            ->withCount('posts')
+            ->count();
     }
 
-    public function render(): View|Factory
+    public function render(): View
     {
         return view('livewire.posts-count-number');
     }
