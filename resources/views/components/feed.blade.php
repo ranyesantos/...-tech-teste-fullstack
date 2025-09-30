@@ -46,7 +46,7 @@ declare(strict_types=1);
         </span>
     </header>
 
-    <div class="outline-light bg-elevation-01dp min-h-screen w-[100%] rounded-[20px] p-8 outline">
+    <div class="outline-light bg-elevation-01dp flex min-h-screen w-[100%] flex-col gap-8 rounded-[20px] p-8 outline">
         <h1 class="text-high text-md font-semibold">Veja os últimos posts das comunidades que você segue</h1>
         {{ $slot }}
     </div>

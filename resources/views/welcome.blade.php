@@ -11,14 +11,15 @@ declare(strict_types=1);
                 @if (isset($posts))
                     @foreach ($posts as $post)
                         @if (isset($post->latestPost))
-                            <div class="py-8">
-                                <x-ui.post-card
-                                    :fonte="$post->display_name"
-                                    :id="$post->latestPost->id"
-                                    :titulo="$post->latestPost->title"
-                                    :descricao="$post->latestPost->content"
-                                />
-                            </div>
+                            <x-ui.post-card
+                                :fonte="$post->display_name"
+                                :id="$post->latestPost->id"
+                                :titulo="$post->latestPost->title"
+                                :descricao="$post->latestPost->content"
+                                :post="$post->latestPost"
+                                :first="$loop->first"
+                                class="{{ $loop->first ? 'bg-elevation-02dp' : 'bg-elevation-01dp' }}"
+                            />
                         @endif
                     @endforeach
                 @else

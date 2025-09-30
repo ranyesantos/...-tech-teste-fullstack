@@ -14,11 +14,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('votes', function (Blueprint $table): void {
-            $table->uuid('id')->primary();
-            $table->foreignId('user_id')->constrained('users');
-            $table->integer('target_id');
-            $table->string('target_type');
-            $table->integer('vote_value');
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->morphs('votable');
+            $table->string('type');
             $table->timestamps();
         });
     }

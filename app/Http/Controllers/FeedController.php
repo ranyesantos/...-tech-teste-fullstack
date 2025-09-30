@@ -5,25 +5,25 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 final class FeedController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View|Factory
+    public function index(): View
     {
         /** @var User $user */
         $user = Auth::user();
 
         $posts = $user->subreddits()
+            ->whereHas('latestPost')
             ->with('latestPost')
-            ->get()
-            ->filter();
+            ->limit(10)
+            ->get();
 
         return view('welcome', [
             'posts' => $posts,

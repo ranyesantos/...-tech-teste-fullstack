@@ -4,33 +4,36 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use App\Models\Subreddit;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
+use Livewire\Attributes\Renderless;
 use Livewire\Component;
 
 final class CommunitySidebar extends Component
 {
-    public $communities = [];
+    public $subreddits = [];
 
-    public $selectedCommunityId;
+    public $selectedSubreddit;
 
-    protected $listeners = ['communitySelected' => 'selectCommunity'];
-
-    public function mount($communities = null, $selectedCommunityId = null): void
+    public function mount($selectedSubreddit = null): void
     {
-        $this->communities = $communities ?? [
-            ['id' => 1, 'emoji' => '😀', 'title' => 'UI/UX', 'usersCount' => '+999'],
-            ['id' => 2, 'emoji' => '😂', 'title' => 'Oi', 'usersCount' => 231],
-        ];
-        $this->selectedCommunityId = $selectedCommunityId;
+        // @TODO alterar para subreddits que o usuario faz parte
+        $this->subreddits = Subreddit::all();
+
+        $this->selectedSubreddit = $selectedSubreddit;
     }
 
-    public function selectCommunity($id): void
+    #[Renderless]
+    public function selectSubreddit($name): Redirector|RedirectResponse
     {
-        $this->selectedCommunityId = $id;
+        $this->selectedSubreddit = $name;
+
+        return redirect()->route('subreddit.show', ['name' => $name]);
     }
 
-    public function render(): View|Factory
+    public function render(): View
     {
         return view('livewire.sidebar.community-sidebar');
     }

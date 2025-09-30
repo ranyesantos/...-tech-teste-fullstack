@@ -27,6 +27,11 @@ final class Subreddit extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
     public function latestPost()
     {
         return $this->hasOne(Post::class)->latestOfMany();
