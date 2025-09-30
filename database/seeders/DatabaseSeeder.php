@@ -30,7 +30,15 @@ final class DatabaseSeeder extends Seeder
 
         User::factory(10)->create();
         Subreddit::factory(10)->create();
-
         Post::factory(10)->create();
+
+        $users = User::all();
+        $subreddits = Subreddit::all();
+        foreach ($users as $user) {
+            $randomSubreddits = $subreddits->random(random_int(1, 3));
+
+            $user->subreddits()->attach($randomSubreddits);
+        }
+
     }
 }
