@@ -5,7 +5,7 @@ declare(strict_types=1);
 ?>
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-elevation-surface h-full">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-elevation-surface h-full w-[100%] md:w-full">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,11 +23,11 @@ declare(strict_types=1);
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="min-h-full">
+    <body class="flex min-h-full w-[100%] flex-col">
         <!-- sidebar -->
         <livewire:community-sidebar />
 
-        <div class="ml-[352px] flex h-screen flex-col">
+        <div class="flex h-screen w-[100%] flex-col pt-8 md:pt-0">
             <!-- Top Nav -->
             <x-navbar />
 

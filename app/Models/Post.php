@@ -14,10 +14,16 @@ final class Post extends Model
     use HasFactory;
     use HasUuids;
     use SoftDeletes;
+
     protected $fillable = [
         'user_id',
         'subreddit_id',
         'title',
         'content',
     ];
+
+    public function subreddit()
+    {
+        return $this->belongsTo(Subreddit::class);
+    }
 }

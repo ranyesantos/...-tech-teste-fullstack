@@ -44,6 +44,11 @@ final class User extends Authenticatable implements FilamentUser, HasAvatar, Has
         'remember_token',
     ];
 
+    public function subreddits()
+    {
+        return $this->belongsToMany(Subreddit::class);
+    }
+
     public function canAccessPanel(Panel $panel): bool
     {
         return true;

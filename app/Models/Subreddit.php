@@ -12,6 +12,7 @@ final class Subreddit extends Model
 {
     use HasFactory;
     use HasUuids;
+
     protected $fillable = [
         'name',
         'display_name',
@@ -20,4 +21,14 @@ final class Subreddit extends Model
         'banner_url',
         'icon_url',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function latestPost()
+    {
+        return $this->hasOne(Post::class)->latestOfMany();
+    }
 }

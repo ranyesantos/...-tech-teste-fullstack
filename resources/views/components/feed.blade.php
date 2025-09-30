@@ -15,7 +15,7 @@ declare(strict_types=1);
         </div>
 
         <!-- status cards -->
-        <span class="flex flex-row justify-between gap-8">
+        <span class="flex flex-col justify-between gap-8 md:flex-row">
             <!-- card quantidade de usuarios -->
             <x-ui.card
                 class="from-brand-primary/10 to-brand-primary/0 border-indigo-primary/32 rounded-xl border bg-gradient-to-r"
@@ -45,8 +45,9 @@ declare(strict_types=1);
             </x-ui.card>
         </span>
     </header>
+
     <div class="outline-light bg-elevation-01dp min-h-screen w-[100%] rounded-[20px] p-8 outline">
-        <h1 class="text-md font-semibold">Veja os últimos posts das comunidades que você segue</h1>
+        <h1 class="text-high text-md font-semibold">Veja os últimos posts das comunidades que você segue</h1>
         {{ $slot }}
     </div>
 </section>
