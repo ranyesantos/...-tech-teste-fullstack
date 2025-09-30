@@ -28,6 +28,7 @@
 
     /* elevation */
     --color-elevation-01dp: var(--elevation-01dp);
+    --color-elevation-02dp: var(--elevation-02dp);
     --color-elevation-surface: var(--elevation-surface);
 
     /* text colors */
@@ -43,6 +44,10 @@
 
 .font-secondary {
     font-family: var(--font-secondary);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
 }
 
 /* text */
@@ -102,6 +107,7 @@ button {
 
         /* elevation */
         --elevation-01dp: #f7f8fc;
+        --elevation-02dp: #f2f4fa;
         --elevation-surface: #fbfbff;
 
         /* text colors */
@@ -142,6 +148,7 @@ button {
 
         /* elevation */
         --elevation-01dp: #0f0f10;
+        --elevation-02dp: #131314;
         --elevation-surface: #09090a;
 
         /* outline colors */
