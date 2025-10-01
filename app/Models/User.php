@@ -44,6 +44,11 @@ final class User extends Authenticatable implements FilamentUser, HasAvatar, Has
         'remember_token',
     ];
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function subreddits()
     {
         return $this->belongsToMany(Subreddit::class, 'subreddit_user', 'user_id', 'subreddit_id');

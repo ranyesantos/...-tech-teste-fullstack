@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table): void {
             $table->id()->generatedAs();
-            $table->string('at_sign');
+            $table->string('at_sign')->unique();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestampTz('email_verified_at')->nullable();

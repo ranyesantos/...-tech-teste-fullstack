@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Admin\Resources\Subreddits\Tables;
+namespace App\Filament\Admin\Resources\Users\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -10,7 +10,7 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-final class SubredditsTable
+final class UsersTable
 {
     public static function configure(Table $table): Table
     {
@@ -18,19 +18,20 @@ final class SubredditsTable
             ->columns([
                 TextColumn::make('name')
                     ->label('Nome')
-                    ->formatStateUsing(fn ($state) => '/r/'.$state),
+                    ->searchable(),
 
-                TextColumn::make('display_name')
-                    ->label('Nome de Exibição'),
+                TextColumn::make('at_sign')
+                    ->label('Username')
+                    ->searchable(),
 
-                TextColumn::make('users_count')
-                    ->label('Membros')
-                    ->counts('users'),
+                TextColumn::make('email')
+                    ->label('Endereço Email')
+                    ->searchable(),
 
-                TextColumn::make('posts_count')
-                    ->label('Posts')
-                    ->counts('posts'),
-
+                TextColumn::make('created_at')
+                    ->date('M Y')
+                    ->label('Conta criada em')
+                    ->sortable(),
             ])
             ->filters([
                 //

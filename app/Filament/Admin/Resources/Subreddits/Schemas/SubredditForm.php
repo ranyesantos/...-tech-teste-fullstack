@@ -21,7 +21,7 @@ final class SubredditForm
                         ->minLength(2)
                         ->maxLength(255)
                         ->unique()
-                        ->label('Nome (será exibido com "/r/" no início)'),
+                        ->helperText('Será exibido com "/r/" no início'),
 
                     TextInput::make('display_name')
                         ->required()
