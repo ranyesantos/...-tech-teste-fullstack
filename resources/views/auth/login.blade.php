@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 ?>
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -44,14 +45,17 @@ declare(strict_types=1);
 
         <!-- Remember Me -->
         <div class="mt-4 block">
-            <label for="remember_me" class="inline-flex items-center">
-                <input
-                    id="remember_me"
-                    type="checkbox"
-                    class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                    name="remember"
-                />
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+            <label for="remember_me" class="flex flex-col items-start justify-between">
+                <a href="/admin/login" class="font-medium text-gray-600">Sou Administrador</a>
+                <div>
+                    <input
+                        id="remember_me"
+                        type="checkbox"
+                        class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
+                        name="remember"
+                    />
+                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                </div>
             </label>
         </div>
 
@@ -71,4 +75,5 @@ declare(strict_types=1);
         </div>
     </form>
 </x-guest-layout>
-<?php 
+
+<?php
