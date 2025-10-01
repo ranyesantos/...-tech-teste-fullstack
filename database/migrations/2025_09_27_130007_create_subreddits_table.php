@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('subreddits', function (Blueprint $table): void {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('display_name');
             $table->longText('description');
-            $table->integer('subscriber_count');
-            $table->string('banner_url');
-            $table->string('icon_url');
+            $table->string('banner_url')->nullable();
+            $table->string('icon_url')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,6 @@ final class Subreddit extends Model
         'name',
         'display_name',
         'description',
-        'subscriber_count',
         'banner_url',
         'icon_url',
     ];
@@ -29,7 +28,7 @@ final class Subreddit extends Model
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class, 'subreddit_user', 'subreddit_id', 'user_id');
     }
 
     public function latestPost()
