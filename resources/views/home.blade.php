@@ -12,7 +12,7 @@ declare(strict_types=1);
         </x-slot>
 
         <x-slot name="content">
-            @if (isset($posts))
+            @if ($posts->isNotEmpty())
                 @foreach ($posts as $post)
                     @if (isset($post->latestPost))
                         <x-ui.post-card
