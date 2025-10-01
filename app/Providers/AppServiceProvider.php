@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Livewire\UsersCountNumber;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Date;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -36,6 +38,7 @@ final class AppServiceProvider extends ServiceProvider
         $this->configureVite();
         $this->configureUrl();
         $this->configureHttp();
+        Livewire::component('users-count', UsersCountNumber::class);
     }
 
     /**

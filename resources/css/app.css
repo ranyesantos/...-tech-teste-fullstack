@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
@@ -7,6 +9,157 @@
 
 @theme {
     --font-sans:
-        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+        'Satoshi', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+}
+
+@theme inline {
+    /* red */
+    --color-red-primary: var(--red-primary);
+
+    /* indigo */
+    --color-indigo-primary: var(--indigo-primary);
+
+    /* color-brand */
+    --color-brand-primary: var(--brand-primary);
+
+    /* color-lime */
+    --color-lime-primary: var(--lime-primary);
+
+    /* elevation */
+    --color-elevation-01dp: var(--elevation-01dp);
+    --color-elevation-02dp: var(--elevation-02dp);
+    --color-elevation-surface: var(--elevation-surface);
+
+    /* text colors */
+    --color-medium: var(--text-medium);
+    --color-high: var(--text-high);
+    --color-light: var(--text-light);
+    --color-dark: var(--text-dark);
+
+    /* fonts */
+    --font-secondary: 'Cal Sans', sans-serif;
+
+    /* outline colors */
+    --color-light: var(--outline-light);
+}
+
+img {
+    z-index: 10;
+}
+.font-secondary {
+    font-family: var(--font-secondary);
+}
+
+.text-sm {
+    font-size: var(--font-size-sm);
+}
+
+/* text */
+.text-3xs {
+    font-size: var(--font-size-xxxs);
+}
+
+.text-2xs {
+    font-size: var(--font-size-xxs);
+}
+
+.text-xs {
+    font-size: var(--font-size-xs);
+}
+
+.text-md {
+    font-size: var(--font-size-md);
+}
+/* font weight */
+.font-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.font-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+/* line height */
+.leading-default {
+    line-height: var(--font-height-default);
+}
+.leading-xs {
+    line-height: var(--font-height-xs);
+}
+
+button {
+    cursor: pointer;
+}
+
+@layer base {
+    :root {
+        /* red */
+        --red-primary: #ff3838;
+
+        /* indigo */
+        --indigo-primary: #4f39f6;
+
+        /* brand */
+        --brand-primary: #3895ff;
+
+        /* lime */
+        --lime-primary: #a5e412;
+
+        /* elevation */
+        --elevation-01dp: #f7f8fc;
+        --elevation-02dp: #f2f4fa;
+        --elevation-surface: #fbfbff;
+
+        /* text colors */
+        --text-medium: #4f4f4f;
+        --text-dark: #09090a;
+        --text-light: #fdfdfd;
+        --text-high: #09090a;
+
+        /* text-sizes */
+        --font-size-xxxs: 12px;
+        --font-size-xxs: 14px;
+        --font-size-xs: 16px;
+        --font-size-sm: 20px;
+        --font-size-md: 24px;
+        --font-size-lg: 32px;
+        --font-size-xl: 40px;
+        --font-size-xxl: 44px;
+        --font-size-xxxl: 48px;
+        --font-size-xxxxl: 64px;
+        --font-size-display: 80px;
+        --font-size-giant: 96px;
+
+        /* font-weight */
+        --font-weight-regular: 400;
+        --font-weight-medium: 500;
+        --font-weight-bold: 700;
+
+        /* leading */
+        --font-height-default: 100%;
+        --font-height-xs: 150%;
+
+        /* outline colors */
+        --outline-light: #e8e9f1;
+    }
+
+    .dark {
+        /* text colors */
+        --text-medium: #9c9c9c;
+        --text-high: #fdfdfd;
+        --text-light: #fdfdfd;
+
+        /* elevation */
+        --elevation-01dp: #0f0f10;
+        --elevation-02dp: #131314;
+        --elevation-surface: #09090a;
+
+        /* outline colors */
+        --outline-light: #2c2c2d;
+    }
 }

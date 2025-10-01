@@ -31,6 +31,7 @@ final class User extends Authenticatable implements FilamentUser, HasAvatar, Has
         'name',
         'email',
         'password',
+        'at_sign',
     ];
 
     /**
@@ -42,6 +43,16 @@ final class User extends Authenticatable implements FilamentUser, HasAvatar, Has
         'password',
         'remember_token',
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function subreddits()
+    {
+        return $this->belongsToMany(Subreddit::class, 'subreddit_user', 'user_id', 'subreddit_id');
+    }
 
     public function canAccessPanel(Panel $panel): bool
     {

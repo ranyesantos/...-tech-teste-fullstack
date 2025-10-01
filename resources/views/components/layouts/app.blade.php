@@ -1,0 +1,47 @@
+<?php
+
+declare(strict_types=1);
+
+?>
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-elevation-surface h-full w-[100%] md:w-full">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Reddit-like Home • Laravel</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet" />
+        <!-- Styles / Scripts -->
+        @livewireStyles
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="flex min-h-full w-[100%] flex-col">
+        <!-- sidebar -->
+        <livewire:community-sidebar />
+
+        <div class="flex h-screen w-[100%] flex-col pt-8 md:pt-0">
+            <!-- Top Nav -->
+            <x-navbar />
+
+            <!-- Content -->
+
+            <main class="pt-[64px] md:ml-[352px]">
+                <div class="flex justify-between p-10">
+                    {{ $slot }}
+                </div>
+            </main>
+        </div>
+
+        @livewireScripts
+    </body>
+</html>
+
+<?php
