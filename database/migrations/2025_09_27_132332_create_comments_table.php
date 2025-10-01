@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('parent_comment_id')->constrained('comments')->nullable();
             $table->longText('content');
             $table->integer('depth_level')->default(0);
-            $table->boolean('isDeleted');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
