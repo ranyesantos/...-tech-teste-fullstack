@@ -27,6 +27,11 @@ final class Post extends Model
         return $this->belongsTo(Subreddit::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function votes()
     {
         return $this->morphMany(Vote::class, 'votable');

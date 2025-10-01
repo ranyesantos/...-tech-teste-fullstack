@@ -34,6 +34,8 @@
     /* text colors */
     --color-medium: var(--text-medium);
     --color-high: var(--text-high);
+    --color-light: var(--text-light);
+    --color-dark: var(--text-dark);
 
     /* fonts */
     --font-secondary: 'Cal Sans', sans-serif;
@@ -42,6 +44,9 @@
     --color-light: var(--outline-light);
 }
 
+img {
+    z-index: 10;
+}
 .font-secondary {
     font-family: var(--font-secondary);
 }
@@ -112,6 +117,8 @@ button {
 
         /* text colors */
         --text-medium: #4f4f4f;
+        --text-dark: #09090a;
+        --text-light: #fdfdfd;
         --text-high: #09090a;
 
         /* text-sizes */
@@ -145,6 +152,7 @@ button {
         /* text colors */
         --text-medium: #9c9c9c;
         --text-high: #fdfdfd;
+        --text-light: #fdfdfd;
 
         /* elevation */
         --elevation-01dp: #0f0f10;

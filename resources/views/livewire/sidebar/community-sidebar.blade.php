@@ -23,11 +23,11 @@ declare(strict_types=1);
                 <span class="text-medium font-semibold">Minhas comunidades</span>
 
                 @foreach ($subreddits as $subreddit)
-                    <button wire:click="selectSubreddit('{{ $subreddit['name'] }}')" class="w-full text-left">
+                    <button wire:click="selectSubreddit('{{ $subreddit->name }}')" class="w-full text-left">
                         <x-community-card
-                            :title="$subreddit['display_name']"
-                            :users-count="$subreddit['subscriber_count']"
-                            :selected="$subreddit['name'] == $selectedSubreddit"
+                            :title="$subreddit->name"
+                            :users-count="$usersCount"
+                            :selected="$subreddit->name == $selectedSubreddit"
                         />
                     </button>
                 @endforeach

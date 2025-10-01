@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Subreddit;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -38,12 +37,15 @@ final class SubredditController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $name): Factory|View
+    public function show(string $name): View
     {
-        $subreddit = Subreddit::query()->where(['name' => $name]);
+        $subreddit = Subreddit::query()->where('name', $name)
+            ->with('posts')
+            ->firstOrFail();
 
-        return view('welcome', [
+        return view('subreddits.show', [
             'subreddit' => $subreddit,
+            'users_count' => $subreddit->withCount('users')->count(),
         ]);
     }
 
